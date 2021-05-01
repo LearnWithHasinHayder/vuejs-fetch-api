@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Quotes - Fetch API</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="info" v-cloak>
+        <blockquote>{{quote.content}}</blockquote>
+        <p class="author">{{quote.author}}</p>
+      </div>
+    </div>
+  </body>
+
+  <script type="module">
+    import { createApp, ref } from "https://unpkg.com/vue@3.0.11/dist/vue.esm-browser.prod.js"
+    const app = createApp({
+      setup() {
+        const quote = ref('');
+        fetch('https://api.quotable.io/random')
+        .then(res=>res.json())
+        .then(data=>{quote.value=data})
+
+        return {quote}
+      },
+    })
+
+    app.mount("#app")
+  </script>
+</html>
+

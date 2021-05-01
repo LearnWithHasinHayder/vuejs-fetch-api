@@ -1,0 +1,35 @@
+body {
+  overflow: hidden;
+}
+#app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+.info {
+  width: 1250px;
+  min-height: 256px;
+  border-radius: 10px;
+  color: #222;
+  padding: 20px;
+  font-size: 24px;
+}
+
+.info blockquote {
+  font-size: 72px;
+  line-height: 1.5em;
+  margin-bottom: 50px;
+}
+
+.info .author {
+  padding: 40px 40px;
+}
+
+.info .author::before {
+  content: "-- ";
+}
+
+[v-cloak]{
+  display:none
+}
